@@ -4,7 +4,7 @@
       label="02. CSS-only hamburger button"
       :expanded="expanded"
       :instructions="instructions"
-      filename="02-hamburger.vue"
+      filename="02-hamburger"
     />
 
     <header>
