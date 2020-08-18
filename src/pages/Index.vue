@@ -1,7 +1,7 @@
 <template>
   <q-page padding class="column wrap justify-center items-center gap">
     <div class>
-      <q-avatar size="5rem" color="primary" text-color="white" icon="school" />
+      <q-avatar size="5rem" color="grey" text-color="white" icon="school" />
     </div>
     <div class="q-ma-lg">
       Check out the course at
