@@ -2,7 +2,7 @@
   <div>
     <div class="row justify-end">
       <q-btn
-        color="primary"
+        color="grey"
         icon="fab fa-github"
         label="Source code"
         type="a"
