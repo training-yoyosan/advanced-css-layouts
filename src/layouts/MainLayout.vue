@@ -11,11 +11,13 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
         />
 
-        <q-toolbar-title>Advanced CSS layouts</q-toolbar-title>
+        <q-toolbar-title>
+          <router-link to="/">Advanced CSS layouts</router-link>
+        </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered content-class="bg-grey-1">
+    <q-drawer v-model="leftDrawerOpen" bordered content-class="bg-grey-1">
       <q-list>
         <q-item-label header class="text-grey-8">Course links</q-item-label>
         <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" />
@@ -34,7 +36,7 @@ import EssentialLink from 'components/EssentialLink.vue'
 const linksData = [
   {
     title: '02 Hamburger',
-    link: '/2-hamburger'
+    link: '/02-hamburger'
   },
 ];
 
