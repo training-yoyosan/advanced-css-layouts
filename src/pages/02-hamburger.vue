@@ -8,13 +8,20 @@
     />
 
     <header>
+      <a href="#main_menu" class="menu-toggle" id="main-menu-toggle">
+        <span class="fa fa-bars"></span>
+      </a>
+
       <div class="logo">
         <h1>
           <i class="fas fa-paint-brush"></i> LayOut Times
         </h1>
         <h2>Your Web Design Destination</h2>
       </div>
-      <nav>
+      <nav id="main-menu" class="main-menu">
+        <a href="#main-menu-toggle" class="menu-close">
+          <span class="fa fa-close"></span>
+        </a>
         <ul>
           <li>
             <a href="#">CSS Resources</a>
@@ -39,6 +46,11 @@
           </li>
         </ul>
       </nav>
+      <!--
+        Makes the whole screen clickable so the menu disappears
+        if the users doesn't click on the Close button.
+      -->
+      <a href="#main-menu-toggle" class="backdrop" hidden></a>
     </header>
 
     <main>
@@ -307,7 +319,7 @@ export default {
 
   data() {
     return {
-      expanded: true,
+      expanded: false,
       instructions: `
 :::
 With a little warm up under our belts, let's move on to making a CSS-only hamburger button.
