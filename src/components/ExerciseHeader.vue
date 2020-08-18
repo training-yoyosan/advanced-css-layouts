@@ -17,6 +17,8 @@
         <q-markdown :src="instructions"></q-markdown>
       </q-expansion-item>
     </q-list>
+
+    <q-separator class="q-my-lg" />
   </div>
 </template>
 
