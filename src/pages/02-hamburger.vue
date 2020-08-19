@@ -8,8 +8,9 @@
     />
 
     <header>
-      <a href="#main_menu" class="menu-toggle" id="main-menu-toggle">
-        <span class="fa fa-bars"></span>
+      <a href="#main_menu" class="menu-toggle" id="main-menu-toggle" aria-label="Open main menu">
+        <span class="sr-only">Open main main</span>
+        <span class="fa fa-bars" aria-hidden="true"></span>
       </a>
 
       <div class="logo">
@@ -18,9 +19,10 @@
         </h1>
         <h2>Your Web Design Destination</h2>
       </div>
-      <nav id="main-menu" class="main-menu">
+      <nav id="main-menu" class="main-menu" aria-label="main menu">
         <a href="#main-menu-toggle" class="menu-close">
-          <span class="fa fa-close"></span>
+          <span class="sr-only">Close main menu</span>
+          <span class="fa fa-close" aria-hidden="true"></span>
         </a>
         <ul>
           <li>
