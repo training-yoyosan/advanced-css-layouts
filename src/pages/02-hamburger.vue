@@ -8,43 +8,51 @@
     />
 
     <header>
-      <a href="#main_menu" class="menu-toggle" id="main-menu-toggle" aria-label="Open main menu">
-        <span class="sr-only">Open main main</span>
-        <span class="fa fa-bars" aria-hidden="true"></span>
-      </a>
-
-      <div class="logo">
-        <h1>
-          <i class="fas fa-paint-brush"></i> LayOut Times
-        </h1>
-        <h2>Your Web Design Destination</h2>
+      <div class="row">
+        <a
+          href="/02-hamburger#main-menu"
+          nofollow
+          class="menu-toggle"
+          id="main-menu-toggle"
+          aria-label="Open main menu"
+        >
+          <span class="sr-only">Open main main</span>
+          <span class="fa fa-bars" aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+          <h1>
+            <i class="fas fa-paint-brush"></i> LayOut Times
+          </h1>
+          <h2>Your Web Design Destination</h2>
+        </div>
       </div>
+
       <nav id="main-menu" class="main-menu" aria-label="main menu">
-        <a href="#main-menu-toggle" class="menu-close">
+        <a href="/02-hamburger#main-menu-toggle" class="menu-close">
           <span class="sr-only">Close main menu</span>
           <span class="fa fa-close" aria-hidden="true"></span>
         </a>
         <ul>
           <li>
-            <a href="#">CSS Resources</a>
+            <a href="/02-hamburger#">CSS Resources</a>
           </li>
           <li>
-            <a href="#">Design</a>
+            <a href="/02-hamburger#">Design</a>
           </li>
           <li>
-            <a href="#">Videos</a>
+            <a href="/02-hamburger#">Videos</a>
           </li>
           <li>
-            <a href="#">Social Media</a>
+            <a href="/02-hamburger#">Social Media</a>
           </li>
           <li>
-            <a href="#">Inspiration</a>
+            <a href="/02-hamburger#">Inspiration</a>
           </li>
           <li>
-            <a href="#">News</a>
+            <a href="/02-hamburger#">News</a>
           </li>
           <li>
-            <a href="#">Top Talent</a>
+            <a href="/02-hamburger#">Top Talent</a>
           </li>
         </ul>
       </nav>
@@ -52,7 +60,7 @@
         Makes the whole screen clickable so the menu disappears
         if the users doesn't click on the Close button.
       -->
-      <a href="#main-menu-toggle" class="backdrop" hidden></a>
+      <a href="/02-hamburger#main-menu-toggle" class="backdrop" hidden></a>
     </header>
 
     <main>
@@ -349,6 +357,102 @@ Below is a starting navigation bar formatted for mobile and desktop. MQ is set t
 header {
   border-bottom: 4px solid #9ea9c1;
 }
+header .row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.menu-toggle {
+  color: #333;
+  margin-right: 1rem;
+}
+.menu-toggle:hover,
+/* when element is tabbed */
+.menu-toggle:focus {
+  color: #c85028;
+}
+
+.main-menu {
+  position: fixed;
+  display: none;
+  left: -200px;
+  top: 50px;
+  height: 100%;
+  overflow-x: visible;
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  z-index: 999;
+}
+.main-menu ul {
+  list-style: none;
+  margin: 0;
+  padding-top: 2.6rem;
+  /* Sets the height of the menu at max
+     on a mobile phone. */
+  min-height: 100%;
+  width: 200px;
+  background-color: #1a1a1a;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.main-menu a {
+  /* makes the link area bigger and easily clickable */
+  display: block;
+  padding: 0.75em;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid #383838;
+}
+.main-menu li:first-child a {
+  border-top: 1px solid #383838;
+}
+.main-menu a:hover,
+.main-menu a:focus {
+  background-color: #333;
+  text-decoration: none;
+}
+.main-menu .menu-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/* emulates a click event in CSS */
+.main-menu:target {
+  display: block;
+  left: 0;
+  outline: none;
+}
+.main-menu:target .menu-close {
+  z-index: 1001;
+}
+.main-menu:target ul {
+  position: relative;
+  z-index: 1000;
+  padding-inline-start: 0;
+}
+.main-menu:target + .backdrop {
+  position: fixed;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+  background-color: rgba(0, 0, 0, 0.85);
+  cursor: default;
+}
+
 main {
   border-top: 2px solid #dddddd;
   margin-top: 0.5rem;
@@ -376,6 +480,41 @@ nav a {
     border-bottom: 1px solid #dddddd;
     padding: 0.3rem 0;
   }
+  .menu-toggle,
+  .main-menu .menu-close {
+    display: none;
+  }
+  .main-menu {
+    position: static;
+    display: block;
+  }
+  .main-menu ul {
+    padding: 0;
+    height: auto;
+    width: auto;
+    background: none;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+  }
+  .main-menu li {
+    display: inline-block;
+  }
+  .main-menu li:first-child a {
+    border: none;
+  }
+  .main-menu a {
+    color: #c85028;
+    border: none;
+    display: inline;
+  }
+  .main-menu a:hover,
+  .main-menu a:focus {
+    background: none;
+    color: #7e64be;
+    text-decoration: none;
+  }
+
   nav ul {
     text-align: center;
   }
