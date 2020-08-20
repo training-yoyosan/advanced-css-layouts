@@ -432,7 +432,7 @@ header .row {
   right: 0;
   top: 0;
 }
-/* emulates a click event in CSS */
+/* emulates a click event in CSS when a#main-meu is clicked */
 .main-menu:target {
   display: block;
   left: 0;
