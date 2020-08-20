@@ -11,12 +11,11 @@
       <div class="row">
         <a
           href="/02-hamburger#main-menu"
-          nofollow
           class="menu-toggle"
           id="main-menu-toggle"
           aria-label="Open main menu"
         >
-          <span class="sr-only">Open main main</span>
+          <span class="sr-only">Open main menu</span>
           <span class="fa fa-bars" aria-hidden="true"></span>
         </a>
         <div class="logo">
@@ -354,6 +353,14 @@ https://medium.com/@heyoka/responsive-pure-css-off-canvas-hamburger-menu-aebc8d1
 Below is a starting navigation bar formatted for mobile and desktop. MQ is set to break where nav wraps once we've set up some typography... which we have not done yet. Trust the process :-)
 */
 
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+  line-height: 0;
+}
+
 header {
   border-bottom: 4px solid #9ea9c1;
 }
@@ -376,6 +383,7 @@ header .row {
 .menu-toggle {
   color: #333;
   margin-right: 1rem;
+  font-size: 2rem;
 }
 .menu-toggle:hover,
 /* when element is tabbed */
