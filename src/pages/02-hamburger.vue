@@ -358,12 +358,9 @@ h1 {
 }
 h2 {
   font-size: 1.5rem;
-  line-height: 0;
+  line-height: normal;
 }
 
-header {
-  border-bottom: 4px solid #9ea9c1;
-}
 header .row {
   display: flex;
   flex-flow: row nowrap;
