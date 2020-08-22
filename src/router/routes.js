@@ -7,6 +7,10 @@ const routes = [
       {
         path: "/02-hamburger",
         component: () => import("pages/02-hamburger.vue")
+      },
+      {
+        path: "/05-home-page",
+        component: () => import("pages/05-home-page.vue")
       }
     ]
   },
