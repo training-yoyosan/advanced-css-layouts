@@ -54,7 +54,7 @@
       ></a>
     </header>
 
-    <main>
+    <main class="home">
       <article>
         <h1>
           <cite>Before You Code</cite>: Product success is part of the plan
@@ -217,26 +217,15 @@ main.home {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  --columns: 16;
+  --columns: 3;
 }
-#devs ul {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  --columns: 2;
-}
-
-section,
-#devs ul li {
-  --width: 16;
-  --initialBasis: calc(var(--width, 0) / var(--columns, 16) * 100%);
-  --gap-constant: 0.3rem;
-  --gap: calc((var(--columns, 16) - var(--width, 0)) * var(--gap-constant));
+article,
+aside {
+  --width: 3;
+  --initialBasis: calc(var(--width, 0) / var(--columns, 3) * 100%);
+  --gap-constant: 0.5rem;
+  --gap: calc((var(--columns, 3) - var(--width, 0)) * var(--gap-constant));
   flex-basis: calc(var(--initialBasis) - var(--gap));
-}
-#devs ul li {
-  --width: 1;
-  --gap-constant: 2rem;
 }
 
 @media (min-width: 740px) {
@@ -248,58 +237,15 @@ section,
     float: right;
     margin: 0 0 1rem 1rem;
   }
-  main.home {
-    --columns: 11;
+  article {
+    --width: 2;
   }
-  #first {
-    --width: 5;
-  }
-  #main {
-    --width: 6;
-  }
-  #resources,
-  #devs {
-    --width: 11;
-  }
-  #devs ul {
-    --columns: 5;
+  aside {
+    --width: 1;
   }
 }
 @media (min-width: 950px) {
-  main.home {
-    --columns: 14;
-  }
-  #first {
-    order: 0;
-  }
-  #main {
-    order: 1;
-  }
-  #resources {
-    --width: 3;
-    order: 2;
-  }
-  #devs {
-    --width: 14;
-    order: 3;
-  }
 }
 @media (min-width: 1200px) {
-  main.home {
-    --columns: 16;
-  }
-  #devs {
-    --width: 2;
-    order: 2;
-  }
-
-  #resources {
-    --width: 3;
-    order: 3;
-  }
-
-  #devs ul {
-    --columns: 1;
-  }
 }
 </style>
