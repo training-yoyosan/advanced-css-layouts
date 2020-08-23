@@ -45,6 +45,10 @@ const linksData = [
   {
     title: "05 Home Page",
     link: "/05-home-page"
+  },
+  {
+    title: "06 Inside Page",
+    link: "/06-inside-page"
   }
 ];
 

@@ -11,6 +11,10 @@ const routes = [
       {
         path: "/05-home-page",
         component: () => import("pages/05-home-page.vue")
+      },
+      {
+        path: "/06-inside-page",
+        component: () => import("pages/06-inside-page.vue")
       }
     ]
   },
