@@ -1,16 +1,18 @@
 <template>
   <q-page padding>
+    <link rel="stylesheet" href="css/nav.css" />
+
     <exercise-header
-      label="02. CSS-only hamburger button"
+      label="05. Complex layouts"
       :expanded="expanded"
       :instructions="instructions"
-      filename="02-hamburger"
+      filename="05-home-page"
     />
 
     <header>
       <div class="row">
         <a
-          href="#main-menu"
+          href="/05-home-page#main-menu"
           id="main-menu-toggle"
           class="menu-toggle"
           aria-label="Open main menu"
@@ -25,7 +27,7 @@
       </div>
       <nav id="main-menu" class="main-menu" aria-label="Main menu">
         <a
-          href="#main-menu-toggle"
+          href="/05-home-page#main-menu-toggle"
           id="main-menu-close"
           class="menu-close"
           aria-label="Close main menu"
@@ -35,32 +37,37 @@
         </a>
         <ul>
           <li>
-            <a href="#">CSS Resources</a>
+            <a href="/05-home-page#">CSS Resources</a>
           </li>
           <li>
-            <a href="#">Design</a>
+            <a href="/05-home-page#">Design</a>
           </li>
           <li>
-            <a href="#">Videos</a>
+            <a href="/05-home-page#">Videos</a>
           </li>
           <li>
-            <a href="#">Social Media</a>
+            <a href="/05-home-page#">Social Media</a>
           </li>
           <li>
-            <a href="#">Inspiration</a>
+            <a href="/05-home-page#">Inspiration</a>
           </li>
           <li>
-            <a href="#">News</a>
+            <a href="/05-home-page#">News</a>
           </li>
           <li>
-            <a href="#">Top Talent</a>
+            <a href="/05-home-page#">Top Talent</a>
           </li>
         </ul>
       </nav>
-      <a href="#main-menu-toggle" class="backdrop" tabindex="-1" hidden></a>
+      <a
+        href="/05-home-page#main-menu-toggle"
+        class="backdrop"
+        tabindex="-1"
+        hidden
+      ></a>
     </header>
 
-    <main>
+    <main class="home">
       <section id="first">
         <h1>Jen’s Awesome Resources</h1>
         <article>
@@ -363,8 +370,52 @@ export default {
 
   data() {
     return {
-      expanded: true,
+      expanded: false,
       instructions: `
+:::
+BOOM goes Bootstrap!!!
+
+Check the chapter 5 folder for comps for how the site should look at extra large, large, medium, and small dimensions.
+
+Use Flexbox, calc(), and custom properties to complete this task.
+
+A good place to start is the chapter 4 answer. Remember that we had this logic:
+
+\`\`\`css
+.row {
+	margin: 0;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	--columns: 4;
+}
+[class*="col-"] {
+  --width: 4;
+  --initialbasis: calc(var(--width, 0) / var(--columns, 4) * 100%);
+  --gap: calc((var(--columns) - var(--width)) * 1%);
+  flex-basis: calc(var(--initialbasis) - var(--gap));
+}
+\`\`\`
+
+In your case, do the following:
+
+- What is "row" and "col-" in this HTML? Make sure the selectors reflect what you're doing. Remember flex containers/parents and flex items/children -- the relationship is critical!
+
+- The designer said this is a 16-column layout, so let's work with that. What do we need to change?
+
+- What if we want a different size gap?
+
+- What changes in the media queries?
+
+
+BONUS: Now that you've applied this to the major page layout, could you use this same logic to the developers column and its changes in layout?
+
+
+RESOURCES:
+
+There are so many resources for calc, custom properties, Flexbox, and these methodologies, I've listed them on their own page:
+https://codepen.io/jen4web/post/rwd20readinglist
+:::
 `
     };
   }
@@ -373,6 +424,31 @@ export default {
 
 <style lang="css">
 /* grid system -- mobile first! */
+main.home {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  --columns: 16;
+}
+#devs ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  --columns: 2;
+}
+
+section,
+#devs ul li {
+  --width: 16;
+  --initialBasis: calc(var(--width, 0) / var(--columns, 16) * 100%);
+  --gap-constant: 0.3rem;
+  --gap: calc((var(--columns, 16) - var(--width, 0)) * var(--gap-constant));
+  flex-basis: calc(var(--initialBasis) - var(--gap));
+}
+#devs ul li {
+  --width: 1;
+  --gap-constant: 2rem;
+}
 
 @media (min-width: 740px) {
   .floatleft {
@@ -383,9 +459,58 @@ export default {
     float: right;
     margin: 0 0 1rem 1rem;
   }
+  main.home {
+    --columns: 11;
+  }
+  #first {
+    --width: 5;
+  }
+  #main {
+    --width: 6;
+  }
+  #resources,
+  #devs {
+    --width: 11;
+  }
+  #devs ul {
+    --columns: 5;
+  }
 }
 @media (min-width: 950px) {
+  main.home {
+    --columns: 14;
+  }
+  #first {
+    order: 0;
+  }
+  #main {
+    order: 1;
+  }
+  #resources {
+    --width: 3;
+    order: 2;
+  }
+  #devs {
+    --width: 14;
+    order: 3;
+  }
 }
 @media (min-width: 1200px) {
+  main.home {
+    --columns: 16;
+  }
+  #devs {
+    --width: 2;
+    order: 2;
+  }
+
+  #resources {
+    --width: 3;
+    order: 3;
+  }
+
+  #devs ul {
+    --columns: 1;
+  }
 }
 </style>
